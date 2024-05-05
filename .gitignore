@@ -1,0 +1,5 @@
+# Backup files
+*.bak 
+
+# Database
+*.sqlite3
