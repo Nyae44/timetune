@@ -4,6 +4,7 @@ from .forms import CreateUserForm, LoginForm
 
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 def home(request):
     
     
@@ -45,7 +46,33 @@ def login(request):
                 
                 auth.login(request, user)
                 
-                # return redirect('')
+                return redirect('main:dashboard')
     context={'form2':form}
     
     return render(request, "main/login.html", context=context)
+
+
+# Dashboard
+
+@login_required(login_url='main:login')
+def dashboard(request):
+    
+    
+    return render(request, "main/dashboard.html")
+
+
+
+
+
+
+
+
+
+
+
+# User logout
+ 
+def logout(request):
+    auth.logout(request)
+    
+    return redirect("main:login")
