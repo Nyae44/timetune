@@ -20,7 +20,7 @@ def register(request):
         if form.is_valid():
             form.save()
             
-        # return redirect()
+        return redirect('login')
     context = {'form':form}
     
     return render(request, "main/register.html", context=context)
@@ -46,6 +46,6 @@ def login(request):
                 auth.login(request, user)
                 
                 # return redirect('')
-    context={'form':form}
+    context={'form2':form}
     
     return render(request, "main/login.html", context=context)
