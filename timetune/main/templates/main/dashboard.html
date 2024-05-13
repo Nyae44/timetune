@@ -1,6 +1,33 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-    <h1>Welcome to the dashboard {{user}}!</h1>
+    <div class="container ">
+        <h3>Welcome to the dashboard {{user}}!</h3>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID:</th>
+                        <th>Title:</th>
+                        <th>Completed:</th>
+                        <th>Created:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task in tasks %}
+                        <tr>
+                            <td>{{task.id}}</td>
+                            <td>{{task.title}}</td>
+                            <td>{{task.completed}}</td>
+                            <td>{{task.created}}</td>
+                        </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
 
-{% endblock content %}
+        </div>
+    </div>
+
+{% endblock content %} 
+
