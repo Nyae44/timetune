@@ -5,6 +5,8 @@ from .forms import CreateUserForm, LoginForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
+
+from .models import Task
 def home(request):
     
     
@@ -57,8 +59,9 @@ def login(request):
 @login_required(login_url='main:login')
 def dashboard(request):
     
-    
-    return render(request, "main/dashboard.html")
+    my_tasks = Task.objects.all()
+    context = {'tasks':my_tasks}
+    return render(request, "main/dashboard.html", context=context)
 
 
 
