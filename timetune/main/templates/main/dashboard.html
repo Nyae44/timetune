@@ -3,26 +3,40 @@
 {% block content %}
     <div class="container ">
         <h3>Welcome to the dashboard {{user}}!</h3>
+        <hr>
+        <a class="btn btn-outline-primary btn-md" href="{% url 'main:create-task'%}">
+            Add a new Task
+        </a>
+        <hr>
         <div class="row">
-            <table class="table table-striped">
-                <thead>
+            <table class="table table-striped table-hover table-bordered">
+                <thead class="table-dark">
                     <tr>
-                        <th>ID:</th>
-                        <th>Title:</th>
-                        <th>Completed:</th>
-                        <th>Created:</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Completed</th>
+                        <th scope="col">Date Created</th>
+
+                        <th scope="col">View</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for task in tasks %}
-                        <tr>
-                            <td>{{task.id}}</td>
-                            <td>{{task.title}}</td>
-                            <td>{{task.completed}}</td>
-                            <td>{{task.created}}</td>
-                        </tr>
-                    
+                {% if tasks %}
+                    {% for task in  tasks %}
+                    <tr>
+                        <td>{{task.id}}</td>
+                        <td>{{task.title}}</td>
+                        <td>{{task.completed|yesno:'Yes,No'}}</td>
+                        <td>{{task.created}}</td>
+
+                        <td> <a href="">Click to view</a></td>
+
+                       
+                    </tr>
+                        
                     {% endfor %}
+                    
+                {% endif %}
                 </tbody>
             </table>
 
@@ -31,3 +45,14 @@
 
 {% endblock content %} 
 
+{% for task in tasks %} 
+<tr>
+    <td>{{task.id}}</td>
+    <td>{{task.title}}</td>
+    <td>{{task.completed|yesno:'Yes,No'}}</td>
+    <td>{{task.created}}</td>
+
+    <td><a href="">Click to view</a></td>
+</tr>
+
+{% endfor %}
