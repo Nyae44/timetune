@@ -10,5 +10,14 @@ urlpatterns = [
     
     path('logout', views.logout, name="logout"),
     
+    # CRUD
+    
     path('dashboard', views.dashboard, name="dashboard"),
+    
+    path('create-task', views.create_task, name="create-task"), 
+    
+    
+    
+    
+    
 ]

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import CreateUserForm, LoginForm
+from .forms import CreateUserForm, LoginForm, CreateTaskForm, UpdateTaskForm
 
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
@@ -63,6 +63,25 @@ def dashboard(request):
     context = {'tasks':my_tasks}
     return render(request, "main/dashboard.html", context=context)
 
+# Add a Task
+
+@login_required(login_url='main:login')
+def create_task(request):
+    
+    form = CreateTaskForm()
+    
+    if request.method == 'POST':
+        form = CreateTaskForm(request.POST)
+        
+        if form.is_valid():
+            
+            form.save()
+            
+            return redirect("main:dashboard")
+    
+    context={'form':form}
+    return render(request, "main/create-task.html", context=context)
+    
 
 
 
