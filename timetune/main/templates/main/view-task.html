@@ -1,1 +1,19 @@
+ {% extends "main/base.html" %}
+
+ {% load crispy_forms_tags %}
+
+ {% block content %}
+
+    <div class="card">
+        <div class="card-body">
+            <p> <strong>ID: </strong>{{task.id}}</p> 
+
+            <p> <strong>Title: </strong>{{task.title}}</p> 
+
+            <p> <strong>Completed: </strong>{{task.completed|yesno:'Yes,No'}}</p> 
+            <p> <strong>Date created: </strong>{{task.created}}</p> 
+
+        </div>
+    </div>
  
+ {% endblock content %}

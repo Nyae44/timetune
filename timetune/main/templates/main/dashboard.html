@@ -29,7 +29,7 @@
                         <td>{{task.completed|yesno:'Yes,No'}}</td>
                         <td>{{task.created}}</td>
 
-                        <td> <a href="">Click to view</a></td>
+                        <td> <a href="{% url "main:task" task.id %}">Click to view</a></td>
 
                        
                     </tr>
