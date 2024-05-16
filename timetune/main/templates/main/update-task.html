@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <body>
+        <div>
+            <h3>Update  task</h3>
+            <h6>Update your task below </h6>
+
+            <hr>
+            <br>
+            <form action="POST" autocomplete="off">
+                {% csrf_token %}
+                {{form | crispy}}
+
+                <br>
+                <button type="submit" class="btn btn-primary w-100 btn-block p-2">Update task</button>
+            </form>
+        </div>
+    </body>
+
+{% endblock content %}
