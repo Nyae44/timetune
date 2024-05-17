@@ -5,6 +5,9 @@
  {% block content %}
 
     <div class="card">
+        <strong>
+            <p>Update your task {{user}}</p>
+        </strong>
         <div class="card-body">
             <p> <strong>ID: </strong>{{task.id}}</p> 
 
@@ -15,5 +18,17 @@
 
         </div>
     </div>
+    <br>
+    <a href="{% url 'main:dashboard' %}" class="btn btn-secondary">Return</a>
+
+    &nbsp; 
+
+    <a href="{% url 'main:update-record'%}">Update Task</a>
+
+    &nbsp;
+
+    <a href=""></a>
+
+
  
  {% endblock content %}
