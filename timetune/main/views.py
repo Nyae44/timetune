@@ -87,6 +87,7 @@ def create_task(request):
 def update_task(request, pk):
     
     task = Task.objects.get(id=pk)
+
     
     form = UpdateTaskForm(instance=task)
     
