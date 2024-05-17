@@ -1,6 +1,6 @@
  {% extends "main/base.html" %}
 
- {% load crispy_forms_tags %}
+ 
 
  {% block content %}
 
@@ -23,11 +23,11 @@
 
     &nbsp; 
 
-    <a href="{% url 'main:update-record'%}">Update Task</a>
+    <a href="{% url 'main:update-task' task.id %}" class="btn btn-info">Update Task</a>
 
     &nbsp;
 
-    <a href=""></a>
+    <a href="" class="btn btn-danger">Delete</a>
 
 
  
